@@ -23,19 +23,19 @@ public class Locales {
     }
 
     public void scanLocales(){
-        if(!localesFolder.exists()) return;
-        locales.addAll(Arrays.asList(localesFolder.listFiles()));
+        if(!this.localesFolder.exists()) {
+            createFolder();
+        }
+        locales.addAll(Arrays.asList(this.localesFolder.listFiles()));
         setLocale();
     }
 //
-//    public void createFolder(){
-//        if(!localesFolder.exists()){
-//            localesFolder.mkdirs();
-//        }
-//    }
+    public void createFolder(){
+        this.localesFolder.mkdirs();
+    }
 
 //    public void createDefaultLocale(){
-//        File localeEN = new File(localesFolder, "messages_en.yml");
+//        File localeEN = new File(this.localesFolder, "messages_en.yml");
 //        File localeCS = new File(localesFolder, "messages_cs.yml");
 //        if(localeEN.exists() && localeCS.exists()) return;
 //
@@ -53,7 +53,7 @@ public class Locales {
 //    }
 
     public void setLocale(){
-        if(language == null) {
+        if(this.language == null) {
 //            JajaDungeons.getInstance().getLogger().severe("--------------------------");
 //            JajaDungeons.getInstance().getLogger().severe("LANGUAGE IS NOT SET IN CONFIG");
 //            JajaDungeons.getInstance().getLogger().severe("Disabling plugin..");
@@ -61,7 +61,10 @@ public class Locales {
 //            JajaDungeons.getInstance().getPluginLoader().disablePlugin(JajaDungeons.getInstance());
             return;
         }
-        for (File locale : locales) {
+        System.out.println(locales);
+        for (File locale : this.locales) {
+            System.out.println(locale);
+            System.out.println(language);
             if (locale.getName().contains(language)) {
                 localeConfig = YamlConfiguration.loadConfiguration(locale);
                 localeConfig.options().copyDefaults(true);
