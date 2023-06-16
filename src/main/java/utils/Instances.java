@@ -9,12 +9,7 @@ public class Instances {
     public static Locales localesInstance = new Locales();
     public static Item itemInstance = new Item();
 
-    public static void main(String[] args) {
-        Strings stringsInstance = new Strings();
-        Strings updateChecker = new Strings();
-        Locales localesInstance = new Locales();
-        Item itemInstance = new Item();
-    }
+    public static void main(String[] args) {}
 
 
 }
