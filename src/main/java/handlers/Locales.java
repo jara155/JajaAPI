@@ -23,6 +23,7 @@ public class Locales {
     }
 
     public void scanLocales(){
+        if(!localesFolder.exists()) return;
         locales.addAll(Arrays.asList(localesFolder.listFiles()));
         setLocale();
     }
@@ -82,7 +83,7 @@ public class Locales {
     }
 
     public void setLocalesFolder(File directory) {
-        localesFolder = directory;
+        this.localesFolder = directory;
     }
 
     public void setLanguage(String language) {
