@@ -86,10 +86,12 @@ public class Locales {
     }
 
     public void setLocalesFolder(File directory) {
+        System.out.println("setuju: " + directory.getName());
         this.localesFolder = directory;
     }
 
     public void setLanguage(String language) {
+        System.out.println("setuju: " + language);
         this.language = language;
     }
 }
