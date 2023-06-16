@@ -65,7 +65,9 @@ public class Locales {
         for (File locale : this.locales) {
             System.out.println(locale);
             System.out.println(language);
-            if (locale.getName().contains(language)) {
+            System.out.println(locale.getName());
+            System.out.println(locale.getName().replace("messages_", "").replace(".yml", ""));
+            if (locale.getName().replace("messages_", "").replace(".yml", "").contains(language)) {
                 localeConfig = YamlConfiguration.loadConfiguration(locale);
                 localeConfig.options().copyDefaults(true);
                 break;
